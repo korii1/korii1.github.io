@@ -1,125 +1,125 @@
-/* setup */
+@import url("https://db.onlinewebfonts.com/c/8912e69ea164ab174c30a568a3fffc0d?family=Andy+Std+Bold");
 
 :root {
-    --primary: #f06;
-    --secondary: #efe;
+	--toyhouse_pfp:	url("https://f2.toyhou.se/file/f2-toyhou-se/users/K0RII");
+	--background:	url("https://f2.toyhou.se/file/f2-toyhou-se/images/89221887_IWUx3jVDk9DDCJp.png");
+
+	--fs_tiny:		15px;
+	--fs_smaller:	20px;
+	--fs_small:		24px;
+	--fs_normal:	30px;
+	--fs_big:		34px;
+	--fs_bigger:	38px;
+	--fs_huge:		45px;
+
+    --col_w:	#eee;
+	--col_hdw:	linear-gradient(90deg, #bbe7e4, #dee, #dee, #dee, #dee);
+
+	--col_1:	#5dc;
+	--col_2:	linear-gradient(167deg, #8ed6, #8fe5, #afe3, #0000);
+	--col_3:	#f04;
+	--col_4:	#f9b;
+	--col_5:	#501;
+
+	--font_1: monospace;
+	--font_2: "Andy Std Bold", sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: content-box;
+	font-family: var(--font_1);
 }
 
 
-/* main */
+/* MAIN */
 
 body {
-    scroll-behavior: smooth;
-    background: fixed center no-repeat url(https://f2.toyhou.se/file/f2-toyhou-se/images/89221887_IWUx3jVDk9DDCJp.png);
-    background-size: cover;
-    /* overflow: hidden; */
-
-    color: var(--secondary);
-    font-size: .8vw;
-    font-family: monospace;
+	width: 100vw;
+	height: 100vh;
+	background: #000 var(--background) center / cover no-repeat;
+}
+body *{
+	font-size: var(--fs_normal);
 }
 
+
+/* HEADER */
+
+header {
+	margin: 0 0 15px 0;
+	background: var(--col_2);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 5%;
+}
+header > b {
+	background: var(--col_2);
+	color: #f04;
+	font-size: var(--fs_huge);
+}
+header > button {
+	padding: 5px;
+	height: fit-content;
+
+	border: 0;
+	border-radius: 5px;
+	background: #0f7;
+	font-size: var(--fs_small);
+	font-family: var(--font_2);
+}
+#splash {
+	position: absolute;
+	top: 1%;
+	right: 2%;
+	width: 250px;
+	rotate: -6deg;
+
+	font-family: var(--font_2);
+	font-size: var(--fs_big);
+	color: var(--col_4);
+	white-space: nowrap;
+	text-shadow:
+		1.5px 0 var(--col_5),
+		-1.5px 0 var(--col_5),
+		0 1.5px var(--col_5),
+		0 -1.5px var(--col_5);
+}
+
+
+/* CONTENT */
+
+/* header */
 main {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-areas:
-        "header header characters"
-        "about about characters"
-        "links links footer"
-        "links links img";
-    grid-template-columns: 35% 35% 12%;
-    grid-template-rows: 26% 26% 12% 20%;
-    gap: 5%;
-    margin: 2% 10% 0 10%;
+	width: 94%;
+	margin: 0 0 0 2%;
+	padding: 1%;
+	box-shadow: 0 5px 20px #000d;
 }
-
-header, .frame {
-    background: linear-gradient(#0993, #0237, #f036);
-    background-size: cover;
-    border-radius: 6px;
-    box-shadow: 0 50px 50px #0007;
-    outline-style: solid;
-    outline-width: 1px;
-    outline-color: #ccc;
-    outline-offset: 5px;
-    padding: 2% 5% 2% 4%;
-    margin: 2% 0 2% 0;
-    position: relative;
+main > .header {
+	display: flex;
+	flex-direction: row;
 }
+main > .header :last-child { flex: 1 }
 
-
-/* specifics */
-
-.oc {
-    font-size: 150%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 4%;
+/* header tabs */
+main > .header > *{
+	position: relative;
+	background: var(--col_hdw);
+	width: 200px;
+	border: 0;
+	transition: filter .2s ease;
 }
-
-#profile-basic-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 5%;
+main > .header > .select {
+	background: #0000;
+	color: var(--col_w);
 }
-
-h1, h2 {
-    color: var(--primary);
-    font-size: 2.5vw;
-    font-weight: bold;
+main > .header > *:not(:last-child):hover {
+	filter: contrast(1.2) saturate(2) brightness(.75);
 }
-
-p {
-    color: var(--secondary);
-    font-size: 1vw;
-    font-weight: normal;
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-items: center;
-    gap: .7vw;
-}
-
-fa-anchor { font-size: .67vw;}
-.fab, .fas { color: #f7a;}
-a { text-decoration: none;}
-hr { border-color: #f8b;}
-.circle {border-radius: 50%;}
-
-
-/* grid info */
-
-header { grid-area: header;}
-#characters { grid-area: characters;}
-#about { grid-area: about;}
-#links { grid-area: links;}
-footer { grid-area: footer;}
-#img { grid-area: img; width: 240%;}
-
-
-/* quick formatting */
-
-.container-row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: center;
-}
-
-.pull-right {
-    position: absolute;
-    right: 0;
+main > .header > *:not(:last-child):active {
+	filter: brightness(1.2);
 }
