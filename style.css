@@ -36,7 +36,9 @@
 /* MAIN */
 
 body {
+	justify-self: center;
 	width: 100vw;
+	max-width: 1200px;
 	height: 100vh;
 	background: #000 var(--background) center / cover no-repeat;
 }
@@ -48,6 +50,7 @@ body *{
 /* HEADER */
 
 header {
+	position: relative;
 	margin: 0 0 15px 0;
 	background: var(--col_2);
 
