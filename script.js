@@ -1,7 +1,7 @@
 
 // SPLASH TEXT
 async function loadSplash() {
-	const response = await fetch("/splash_texts.json");
+	const response = await fetch("splash_texts.json");
 	const texts = await response.json();
 
 	const splash = document.getElementById("splash");
